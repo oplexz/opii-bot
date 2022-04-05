@@ -10,9 +10,10 @@ module.exports = {
 		let categories = {};
 		for (let cmd in self.commands) {
 			let cmdData = self.commands[cmd];
-			if (cmdData.restricted && self.config.admins.indexOf(msg.author.id) <= -1) {
-				continue;
-			}
+			// TODO: Hide commands if user is not an admin
+			// if (cmdData.restricted && self.isAdmin(msg.author.id)) {
+			// continue;
+			// }
 
 			let category = cmdData.cat || 'Uncategorized';
 			categories[category] = categories[category] || {};

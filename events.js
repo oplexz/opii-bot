@@ -32,7 +32,7 @@ module.exports = (opii, logger) => {
 	opii.client.on('message', (msg) => {
 		if (msg.author.bot || msg.author.id == opii.client.user.id) return;
 
-		let msgData = parseText(msg.content, opii.config.prefix);
+		let msgData = parseText(msg.content, process.env.BOT_PREFIX);
 		if (!msgData) return;
 
 		msgData.cmd = msgData.cmd.toLowerCase();

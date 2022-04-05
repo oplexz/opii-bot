@@ -7,7 +7,7 @@ opii.Discord = require('discord.js');
 opii.client = new opii.Discord.Client();
 
 logger.warn('Loading config...');
-opii.config = require('./config.js');
+require('dotenv').config()
 
 logger.warn('Loading events...');
 require('./events.js')(opii, logger);
@@ -61,13 +61,13 @@ const loadCommands = async () => {
 
 opii.colorutils = require('./colorutils.js');
 
-opii.isAdmin = id => opii.config.admins.includes(id);
+opii.isAdmin = id => process.env.BOT_ADMINS.split(",").includes(id);
 
 (async () => {
 	logger.warn('Loading commands...');
 	await loadCommands();
 	logger.warn('Attempting to log in...');
-	opii.client.login(opii.config.token);
+	opii.client.login(process.env.DISCORD_TOKEN);
 })();
 
 process.on('uncaughtException', (err) => logger.error('Uncaught exception:', err));

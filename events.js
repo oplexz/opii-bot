@@ -26,7 +26,7 @@ module.exports = (opii, logger) => {
 	});
 	opii.client.on('reconnecting', () => logger.warn('Reconnecting...'));
 	opii.client.on('error', (err) => logger.error('Discord.js error:', err));
-	opii.client.on('message', (msg) => {
+	opii.client.on('messageCreate', (msg) => {
 		if (msg.author.bot || msg.author.id == opii.client.user.id) return;
 
 		let msgData = parseText(msg.content, process.env.BOT_PREFIX);

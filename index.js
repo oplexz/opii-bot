@@ -4,7 +4,7 @@ logger.warn('Initializing...');
 const opii = {};
 
 opii.Discord = require('discord.js');
-opii.client = new opii.Discord.Client();
+opii.client = new opii.Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 logger.warn('Loading config...');
 require('dotenv').config()

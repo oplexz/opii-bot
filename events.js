@@ -15,10 +15,7 @@ const parseText = (str, prefix) => {
 
 module.exports = (opii, logger) => {
 	opii.client.on('ready', () => {
-		opii.client.user.setActivity('you 👀', { type: 'WATCHING' })
-			.then(presence => logger.info(`Presence set to "${presence.activities[0].name}"`))
-			.catch(console.error);
-
+		opii.client.user.setActivity('you 👀', { type: 'WATCHING' });
 		logger.info(`${opii.client.user.tag} online.`);
 	});
 	opii.client.on('disconnect', (data) => {

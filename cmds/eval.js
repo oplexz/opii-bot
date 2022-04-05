@@ -13,7 +13,7 @@ function truncate(str) {
 module.exports = {
 	cat: 'Development',
 	desc: 'Evaluate code',
-	run: function (opii, msg, args, argStr) {
+	run: function (opii, msg, _, argStr) {
 		try {
 			let evaled = eval(argStr);
 			if (typeof evaled != 'string') {

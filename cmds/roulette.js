@@ -1,7 +1,7 @@
 module.exports = {
 	desc: 'Roulette (Jinxei special)',
 	cat: 'Misc',
-	run: function (opii, msg) {
+	run: function (_opii, msg) {
 		const outcome = Math.random();
 		const tag = `<@${msg.author.id}>`;
 		if (outcome < 0.05) {

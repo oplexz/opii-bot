@@ -1,7 +1,7 @@
 module.exports = {
 	cat: 'Color',
 	desc: 'Cleans up all unused color roles. I hope.',
-	run: function (self, msg) {
+	run: function (_, msg) {
 		let n = 0;
 
 		msg.guild.roles.cache.forEach((role) => {

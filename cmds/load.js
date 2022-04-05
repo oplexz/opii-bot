@@ -1,13 +1,13 @@
 module.exports = {
 	cat: 'Bot Management',
 	desc: 'Load (new) command',
-	run: function (self, msg, args) {
+	run: function (opii, msg, args) {
 		let cmdName = args[0];
 		if (!cmdName || !require('fs').existsSync(`./cmds/${cmdName}.js`)) {
 			return msg.channel.send('Command does not exist.');
 		}
 
-		if (self.commands[cmdName]) {
+		if (opii.commands[cmdName]) {
 			return msg.channel.send('That command already exists. Use ``reload`` instead.');
 		}
 
@@ -21,7 +21,7 @@ module.exports = {
 			return console.log(err);
 		}
 
-		self.registerCommand(cmdName, cmdData);
+		opii.registerCommand(cmdName, cmdData);
 		msg.channel.send(`Command \`\`${cmdName}\`\` loaded.`);
 	},
 	restricted: true,

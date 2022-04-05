@@ -1,7 +1,7 @@
 module.exports = {
 	cat: '',
 	desc: '',
-	run: function (self, msg, args, argStr) {
+	run: function (opii, msg, args, argStr) {
 
 	},
 };

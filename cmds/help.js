@@ -1,15 +1,15 @@
 module.exports = {
 	desc: 'See all commands',
 	cat: 'Bot Info',
-	run: function (self, msg) {
-		let embed = new self.Discord.MessageEmbed()
+	run: function (opii, msg) {
+		let embed = new opii.Discord.MessageEmbed()
 			.setColor(0x39D5FF)
 			.setTitle('Help')
 			.setTimestamp();
 
 		let categories = {};
-		for (let cmd in self.commands) {
-			let cmdData = self.commands[cmd];
+		for (let cmd in opii.commands) {
+			let cmdData = opii.commands[cmd];
 			// TODO: Hide commands if user is not an admin
 			// if (cmdData.restricted && self.isAdmin(msg.author.id)) {
 			// continue;

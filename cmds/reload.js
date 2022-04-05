@@ -25,14 +25,14 @@ function purgeCache(moduleName) {
 module.exports = {
 	cat: 'Bot Management',
 	desc: 'Reload commands',
-	run: function (self, msg, args) {
-		if (!args[0] || !self.commands[args[0]]) {
+	run: function (opii, msg, args) {
+		if (!args[0] || !opii.commands[args[0]]) {
 			return msg.channel.send('That command does not exist!');
 		}
 
 		let path = `./${args[0]}.js`;
 		purgeCache(path);
-		self.registerCommand(args[0], require(path));
+		opii.registerCommand(args[0], require(path));
 		msg.channel.send('Command ``' + args[0] + '`` reloaded.');
 	},
 	restricted: true,

@@ -1,3 +1,5 @@
+// TODO: Fix (old color gets removed, but new one doesn't get assigned)
+
 const colorutils = require('../colorutils.js');
 
 module.exports = {

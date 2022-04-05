@@ -1,8 +1,4 @@
-const moment = require("moment-timezone");
-
 const format = (seconds) => {
-	const pad = (n) => (n < 10 ? "0" : "") + n;
-
 	d = Math.floor(seconds / 86400);
 	h = Math.floor(seconds / 3600) % 24;
 	m = Math.floor(seconds % 3600 / 60);
@@ -16,8 +12,7 @@ const format = (seconds) => {
 module.exports = {
 	cat: "Bot Info",
 	desc: "Shows current uptime",
-	run: function (opii, msg) {
-		// const since = moment().tz("Europe/Moscow").subtract(process.uptime(), "seconds");
+	run: function (_, msg) {
 		const uptime = format(process.uptime());
 		const sys_uptime = format(parseFloat(require("child_process").execSync("awk '{print $1}' /proc/uptime")));
 		msg.channel.send(`Bot: \`${uptime}\`\nSystem: \`${sys_uptime}\``);

@@ -4,7 +4,10 @@
   "description": "A bot",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --watch src src/slashCommands.ts"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "deployCommands": "node dist/deployCommands.js",
+    "dev": "ts-node-dev --respawn --watch src src/index.ts"
   },
   "author": "oplexz",
   "license": "ISC",
@@ -12,6 +15,7 @@
     "chalk": "^2.4.1",
     "discord.js": "^14.9.0",
     "dotenv": "^16.0.0",
+    "glob": "^9.3.4",
     "moment-timezone": "^0.5.23",
     "snekfetch": "^4.0.4",
     "tslog": "^4.8.2"
